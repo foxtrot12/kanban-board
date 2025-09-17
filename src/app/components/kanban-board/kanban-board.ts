@@ -17,7 +17,8 @@ import {
 import { Task } from '../task/task';
 import { CreateTask } from '../create-task/create-task';
 import { TitleCasePipe } from '@angular/common';
-import { fromEvent, Subscription } from 'rxjs';
+import { fromEvent, Subscription, throttleTime } from 'rxjs';
+import { subscribeToWindowResize } from '../../utils/jsUtils';
 
 @Component({
   selector: 'app-kanban-board',
@@ -81,9 +82,9 @@ export class KanbanBoard implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.#resizeSubs = fromEvent(window, 'resize').subscribe(() => {
-      this.calculateStatusRegions();
-    });
+    this.#resizeSubs = subscribeToWindowResize().subscribe(() => {
+    this.calculateStatusRegions();
+  });
   }
 
   ngAfterViewInit(): void {

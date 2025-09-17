@@ -1,59 +1,48 @@
-# KanbanBoard
+# Kanban Board
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+A simple and customizable Kanban board application for managing tasks and workflows.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Create, edit, and delete tasks
+- Drag-and-drop task management across columns
+- Customizable columns (To Do, In Progress, Done, etc.)
+- Responsive design for desktop and mobile
+- Persistent storage (local or remote)
 
-```bash
-ng serve
-```
+## Getting Started
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Prerequisites
 
-## Code scaffolding
+- Node.js (v18+ recommended)
+- npm or yarn
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Installation
 
 ```bash
-ng generate --help
+git clone https://github.com/foxtrot12/kanban-board.git
+cd kanban-board
+npm install
 ```
 
-## Building
-
-To build the project run:
+### Running the App
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-## Running unit tests
+## Usage
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Add new tasks using the input form.
+- Drag tasks between columns to update their status.
+- Edit or delete tasks as needed.
 
-```bash
-ng test
-```
+## Contributing
 
-## Running end-to-end tests
+Contributions are welcome! Please open issues or submit pull requests.
 
-For end-to-end (e2e) testing, run:
+## License
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License.

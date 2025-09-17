@@ -1,0 +1,23 @@
+<form
+  (ngSubmit)="createTask()"
+  class="flex flex-col gap-4 h-full w-full text-primary px-8 border-2 border-tertiary rounded-xl py-2"
+>
+  <input
+    name="title"
+    placeholder="Title"
+    class="font-bold border-quaternary border-2 rounded-lg py-1 px-2 text-xl"
+    [(ngModel)]="title"
+  />
+  <textarea
+    name="description"
+    class="border-quaternary border-2 rounded-lg py-1 px-2"
+    placeholder="Description"
+    [(ngModel)]="description"
+  ></textarea>
+  <button [ngClass]="{ 'border-quaternary border-2 rounded-lg w-1/3': true,
+    'cursor-pointer' : title(),
+    'cursor-not-allowed' : !title()
+   }">
+    Create Task
+  </button>
+</form>

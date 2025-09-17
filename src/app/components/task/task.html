@@ -1,0 +1,8 @@
+<div
+  (dragend)="onDragEnd($event)"
+  class="flex flex-col gap-4 cursor-pointer border-quaternary border rounded-lg px-4 py-2"
+  draggable="true"
+>
+  <h3 class="text-xl font-bold text-tertiary">{{ task.title | titlecase }}</h3>
+  <p class="text-primary overflow-ellipsis">{{ task.description | titlecase }}</p>
+</div>

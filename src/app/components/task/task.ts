@@ -6,7 +6,6 @@ import { TitleCasePipe } from '@angular/common';
   selector: 'app-task',
   imports: [TitleCasePipe],
   templateUrl: './task.html',
-  styleUrl: './task.scss',
 })
 export class Task {
   @Input() task!: TaskT;

@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-create-task',
   imports: [FormsModule, CommonModule],
   templateUrl: './create-task.html',
-  styleUrl: './create-task.scss',
 })
 export class CreateTask {
   readonly taskManagerService = inject(TaskManagerService);

@@ -23,7 +23,6 @@ import { fromEvent, Subscription } from 'rxjs';
   selector: 'app-kanban-board',
   imports: [Task, CreateTask, TitleCasePipe],
   templateUrl: './kanban-board.html',
-  styleUrl: './kanban-board.scss',
 })
 export class KanbanBoard implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('statusColumns') statusColumns!: QueryList<ElementRef>;

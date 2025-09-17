@@ -1,6 +1,7 @@
 //Reusable utility service for managing tasks in a Kanban board application using Angular signals.
 
 import { Injectable, signal, computed, effect } from '@angular/core';
+import { generateUniqueId, loadFromLocalStorage, saveToLocalStorage } from '../../utils/jsUtils';
 
 export type TaskStatus = 'ToDo' | 'InProgress' | 'Done';
 
@@ -99,13 +100,10 @@ export class TaskManagerService {
 
   private loadFromStorage(): TaskT[] {
     try {
-      const storedData = localStorage.getItem(this.#STORAGE_KEY);
-      if (!storedData) return [];
-
-      const parsed = JSON.parse(storedData) as TaskT[];
-
+      const parsedTasks = loadFromLocalStorage<TaskT[]>(this.#STORAGE_KEY);
+      if (!parsedTasks) return [];
       // Convert date strings back to Date objects
-      return parsed.map((task) => ({
+      return parsedTasks.map((task) => ({
         ...task,
         createdAt: new Date(task.createdAt),
         updatedAt: new Date(task.updatedAt),
@@ -119,7 +117,7 @@ export class TaskManagerService {
   private saveToStorage(): void {
     try {
       const tasksToSave = this.#tasks();
-      localStorage.setItem(this.#STORAGE_KEY, JSON.stringify(tasksToSave));
+      saveToLocalStorage(tasksToSave, this.#STORAGE_KEY);
     } catch (error) {
       console.error('Error saving tasks to localStorage:', error);
     }
@@ -127,14 +125,11 @@ export class TaskManagerService {
 
   private setupAutoSave(): void {
     effect(() => {
-      setTimeout(() => this.saveToStorage(), 0);
+      this.saveToStorage();
     });
   }
 
-  /**
-   * Generate unique ID for tasks
-   */
   private generateId(): string {
-    return `task_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
+    return `task${generateUniqueId()}`;
   }
 }
